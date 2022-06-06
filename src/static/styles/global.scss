@@ -1,0 +1,17 @@
+@use './resources/colors' as *;
+
+body {
+    background-color: $bg-color;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin selection {
+    ::-moz-selection { @content; }
+    ::selection { @content; }
+}
+
+@include selection {
+    color: $ac-color;
+    background: $a1-color;
+}

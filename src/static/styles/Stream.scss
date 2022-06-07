@@ -1,0 +1,67 @@
+@use "./resources/colors.scss" as *;
+@use "./resources/sizes.scss" as *;
+
+.StreamPage {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.StreamWrapper {
+	height: calc(100vh - 52px);
+	padding: 2% 3% 10% 3%;
+
+	overflow: auto;
+
+	@media screen and (max-width: $medium) {
+		padding: 0 0;
+	}
+}
+
+.StreamContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	height: 100%;
+	transition: all 1s ease;
+
+	@media screen and (max-width: $medium) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: stretch;
+		justify-content: flex-start;
+		height: 100%;
+	}
+
+	.Stream {
+		flex: 2 1 700px;
+		min-width: 50px;
+		margin: 10px;
+		align-self: center;
+
+		@media screen and (max-width: $medium) {
+			margin: 0 0;
+			width: 100%;
+			justify-self: flex-start;
+		}
+	}
+
+	.Chat {
+		flex: 1 0;
+		min-width: 300px;
+		align-self: stretch;
+		margin: 10px;
+		padding: 10px;
+		min-height: 400px;
+
+		@media screen and (max-width: $medium) {
+			flex: 1 0;
+			align-self: stretch;
+			justify-self: flex-start;
+			margin: 0 0;
+		}
+	}
+}

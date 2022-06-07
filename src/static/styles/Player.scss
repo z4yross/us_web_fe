@@ -1,0 +1,110 @@
+@use "./resources/colors.scss" as *;
+@use "./resources/sizes.scss" as *;
+
+.Stream {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+
+	.PlayerWrapper {
+		flex: 0 0 auto;
+		border-radius: 20px;
+		overflow: hidden;
+
+		@media screen and (max-width: $medium) {
+			border-radius: 0px;
+		}
+	}
+
+	.InfoWrapper {
+		flex: 0 0 70px;
+		display: flex;
+		flex-direction: row;
+
+		background-color: adjust-color($a2-color, $lightness: 4%);
+		margin-top: 10px;
+		border-radius: 20px;
+
+		@media screen and (max-width: $medium) {
+			margin-top: 0px;
+			border-radius: 0px;
+            flex: 0 0 50px;
+			// background-color: adjust-color($bg-color);
+		}
+
+		.InfoTitle {
+			flex: 1 0;
+			display: flex;
+			flex-wrap: nowrap;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: flex-start;
+
+			margin-left: 20px;
+
+			.InfoTilteLabel {
+				// flex: 0 0 15px;
+				color: adjust-color($ac-color);
+				font-family: "NewAleniaBold";
+				letter-spacing: 0.3rem;
+				font-size: 0.7rem;
+
+                @media screen and (max-width: $medium) {
+                    display: none;
+                }
+			}
+
+			.InfoTilteData {
+				// flex: 0 0 30px;
+				color: adjust-color($ac-color, $lightness: 10%);
+				font-family: "NewAleniaBlack";
+				letter-spacing: 0.2rem;
+				font-size: 1.5rem;
+				margin: 0;
+
+                @media screen and (max-width: $medium) {
+                    font-size: 1.5rem;
+                }
+			}
+		}
+
+		.ExtraInfo {
+			flex: 1 0;
+			display: flex;
+			flex-direction: row-reverse;
+			margin-right: 20px;
+
+			.status {
+                flex: 1 0;
+				display: flex;
+				flex-wrap: nowrap;
+				flex-direction: row;
+				justify-content: space-evenly;
+				align-items: center;
+
+				.online {
+					color: adjust-color($ac-color, $lightness: 10%);
+					font-family: "NewAleniaBlack";
+					letter-spacing: 0.2rem;
+					font-size: 1.3rem;
+					margin: 0;
+                    text-align: center;
+
+                    @media screen and (max-width: $medium) {
+                        font-size: 1rem;
+                    }
+				}
+
+				svg {
+					height: 2.5rem;
+                    color: adjust-color($ac-color, $lightness: 10%);
+
+                    @media screen and (max-width: $medium) {
+                        height: 2rem;
+                    }
+				}
+			}
+		}
+	}
+}

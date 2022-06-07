@@ -13,5 +13,7 @@
 
 @include font("NewAlenia", "/src/static/fonts/NewAlenia/NewAlenia");
 @include font("NewAleniaBlack", "/src/static/fonts/NewAleniaBlack/NewAleniaBlack");
-@include font("NewAleniaBold", "/src/static/fonts/NewAleniaBold/NewAleniaBlack");
-@include font("NewAleniaThin", "/src/static/fonts//NewAleniaThin/NewAleniaBlack");
+@include font("NewAleniaBold", "/src/static/fonts/NewAleniaBold/NewAleniaBold");
+@include font("NewAleniaThin", "/src/static/fonts//NewAleniaThin/NewAleniaThin");
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');

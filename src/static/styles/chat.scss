@@ -1,0 +1,139 @@
+@use "./resources/colors.scss" as *;
+@use "./resources/sizes.scss" as *;
+
+.Chat {
+	border-radius: 20px;
+	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	padding: 0 !important;
+
+	@media screen and (max-width: $medium) {
+		border-radius: 0px;
+	}
+
+	.ChatMessages {
+		flex: 1 1;
+		background-color: adjust-color($bg-color, $lightness: 4%);
+		width: 100%;
+
+		border-bottom: 5px solid $bg-color;
+
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 10px;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        .messageWrapper{
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-top: 10px;
+            background-color: adjust-color($a2-color, $lightness: 4%);
+
+            border-radius: 10px;
+
+            font-family: 'Maven Pro';
+            
+            .messageAuthor{
+                color: adjust-color($ac-color, $lightness: -50%);
+                font-weight: 800;
+            }
+
+            .messageText{
+                color: adjust-color($ac-color, $lightness: -15%);
+                font-weight: 500;
+            }
+        }
+	}
+
+	.ChatInput {
+		flex: 0 0 70px;
+		background-color: adjust-color($bg-color, $lightness: 4%);
+		width: 100%;
+
+		border-top: 5px solid $bg-color;
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+
+        
+
+		// padding: 0 10px 0 10px;
+
+		@media screen and (max-width: $medium) {
+			flex: 0 0 50px;
+		}
+
+		input[type="text"] {
+            font-family: 'Maven Pro';
+			flex: 1 1;
+			background-color: $bg-color;
+			font-size: medium;
+			color: adjust-color($ac-color, $lightness: -30%);
+			font-weight: 600;
+			border: none;
+			height: 30px;
+
+            min-width: 200px;
+
+			margin: 0 5px 0 10px;
+
+			border-top-left-radius: 20px;
+			border-bottom-left-radius: 20px;
+
+            padding-left: 20px;
+
+			&:focus {
+				border: none;
+				outline: none;
+			}
+		}
+
+		button {
+			flex: 0 0 50px;
+
+			background-color: $bg-color;
+
+			outline: none;
+			border: none;
+			margin: 0 10px 0 5px;
+			height: 30px;
+
+			border-top-right-radius: 20px;
+			border-bottom-right-radius: 20px;
+
+			transition: all 0.3s ease;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+			svg {
+				width: 20px;
+				height: 20px;
+				color: adjust-color($a1-color, $lightness: 10%);
+				background-color: rgba($color: #000000, $alpha: 0);
+			}
+
+			&:hover {
+				background-color: $a1-color;
+
+				svg {
+					color: $ac-color;
+				}
+			}
+
+			&:active {
+				background-color: $a2-color;
+			}
+		}
+	}
+}

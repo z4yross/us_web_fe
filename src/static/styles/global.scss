@@ -1,17 +1,49 @@
-@use './resources/colors' as *;
+@use "./resources/colors" as *;
 
 body {
-    background-color: $bg-color;
-    padding: 0;
-    margin: 0;
+	background-color: $bg-color;
+	padding: 0;
+	margin: 0;
 }
 
 @mixin selection {
-    ::-moz-selection { @content; }
-    ::selection { @content; }
+	::-moz-selection {
+		@content;
+	}
+	::selection {
+		@content;
+	}
 }
 
 @include selection {
-    color: $ac-color;
-    background: $a1-color;
+	color: $ac-color;
+	background: $a1-color;
+}
+
+::-webkit-scrollbar {
+	border-radius: 10px;
+	height: 5px;
+	width: 5px;
+	background-color: $a1-color;
+	background: $a1-color;
+	color: $a1-color;
+}
+
+::-webkit-scrollbar-thumb {
+	background: adjust-color($a1-color, $lightness: -3%);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: adjust-color($bg-color);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: adjust-color($bg-color);
+}
+
+
+input{
+    caret-color: $a1-color;
 }

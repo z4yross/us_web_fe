@@ -4,8 +4,7 @@ import { useStateContext } from "../contexts/ContextProvider";
 
 import Logo from "../static/svg/logo.svg?component";
 
-
-const Player = () => {
+const Player = ({ url, state, user }) => {
 	const parentDiv = useRef(null);
 
 	const [playerSize, setPlayerSize] = useState([]);
@@ -59,21 +58,26 @@ const Player = () => {
 			<div className="PlayerWrapper">
 				<ReactPlayer
 					controls={true}
-					playing={false}
+					playing={state ? true : false}
 					width={playerSize[0]}
 					height={playerSize[1]}
-					url="https://multiplatform-f.akamaihd.net/i/multi/will/bunny/big_buck_bunny_,640x360_400,640x360_700,640x360_1000,950x540_1500,.f4v.csmil/master.m3u8"
+					url={state ? url : "http://"}
 				/>
 			</div>
 			<div className="InfoWrapper">
 				<div className="InfoTitle">
 					<div className="InfoTilteLabel">Streamer:</div>
-					<div className="InfoTilteData">Usuario</div>
+					<div className="InfoTilteData">{user}</div>
 				</div>
 				<div className="ExtraInfo">
 					<div className="status">
-						<div className="online">En linea</div>
-						<Logo />
+						<div
+							className="online"
+							style={{ color: state ? "#FFF" : "gray" }}
+						>
+							{state ? "En linea" : "Desconectado"}
+						</div>
+						<Logo style={{ color: state ? "#FFF" : "gray" }} />
 					</div>
 				</div>
 			</div>

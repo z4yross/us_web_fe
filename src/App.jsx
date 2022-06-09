@@ -9,23 +9,31 @@ import { NavBar } from "./components";
 
 import "./static/styles/index.scss";
 import { useStateContext } from "./contexts/ContextProvider";
+import { useCookies } from "react-cookie";
 
 function App() {
 
-	const {setScreenSize} = useStateContext();
+	const [cookies, setCookie] = useCookies(["user"]);
+
+	const {setScreenSize, setCurrentUser} = useStateContext();
 
 	useEffect(() => {
 		setScreenSize([window.innerWidth, window.innerHeight])
 		window.addEventListener("resize", () => setScreenSize([window.innerWidth, window.innerHeight]));
 	}, []);
 
+	useEffect(() => {
+		setCurrentUser(cookies.user)
+	}, [cookies])
+
 	return (
 		<div>
-			<BrowserRouter>
+			<BrowserRouter  >
 				<Routes>
 					{/* dashboard  */}
+					<Route path="/" element={<In />} />
 					<Route path="/login" element={<In />} />
-					<Route path="/stream" element={<Stream />} />
+					<Route path="/:user" element={<Stream />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

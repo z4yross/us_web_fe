@@ -1,0 +1,1 @@
+export default 'http://home.z4yross.xyz:8283/streams';

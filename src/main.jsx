@@ -5,11 +5,29 @@ import App from "./App";
 import "./index.css";
 
 import { ContextProvider } from "./contexts/ContextProvider";
+import { CookiesProvider } from "react-cookie";
+
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+const client = new ApolloClient({
+	uri: "http://home.z4yross.xyz:5000/graphql",
+	cache: new InMemoryCache(),
+	defaultOptions: {
+		watchQuery: {
+			nextFetchPolicy: "no-cache",
+		},
+		query: {
+			fetchPolicy: "no-cache",
+		},
+	},
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
+	<ApolloProvider client={client}>
 		<ContextProvider>
-			<App />
+			<CookiesProvider>
+				<App />
+			</CookiesProvider>
 		</ContextProvider>
-	</React.StrictMode>
+	</ApolloProvider>
 );

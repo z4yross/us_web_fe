@@ -10,7 +10,7 @@ import { CookiesProvider } from "react-cookie";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-	uri: "http://home.z4yross.xyz:5000/graphql",
+	uri: "https://us-ag-ms-mm2rw4nxna-rj.a.run.app/graphql",
 	cache: new InMemoryCache(),
 	defaultOptions: {
 		watchQuery: {

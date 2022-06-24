@@ -5,7 +5,6 @@ import App from "./App";
 import "./index.css";
 
 import { ContextProvider } from "./contexts/ContextProvider";
-import { CookiesProvider } from "react-cookie";
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
@@ -25,9 +24,9 @@ const client = new ApolloClient({
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<ApolloProvider client={client}>
 		<ContextProvider>
-			<CookiesProvider>
-				<App />
-			</CookiesProvider>
+			{/* <CookiesProvider> */}
+			<App />
+			{/* </CookiesProvider> */}
 		</ContextProvider>
 	</ApolloProvider>
 );

@@ -8,8 +8,11 @@ import { useStateContext } from "../contexts/ContextProvider";
 import { CREATE_USER } from "../data/gql/mutations";
 import { GET_USERNAME_FROM_ID } from "../data/gql/queries";
 
+import { useLocalStorage } from "../hooks";
+
 const Signup = () => {
-	const [cookies, setCookie] = useCookies(["user"]);
+	// const [cookies, setCookie] = useCookies(["user"]);
+	const [userStorage, setUserStorage] = useLocalStorage("user", "");
 
 	const [loading, setLoading] = useState(false);
 
@@ -35,7 +38,7 @@ const Signup = () => {
 			};
 			setCurrentUser(fnlUser);
 			setLoading(false);
-			setCookie("user", JSON.stringify(fnlUser), { path: "/" });
+			setUserStorage(JSON.stringify(fnlUser));
 			navigate(`/${data.GetUser.username}`);
 		},
 		onError: (error) => {

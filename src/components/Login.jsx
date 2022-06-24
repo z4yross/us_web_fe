@@ -1,6 +1,5 @@
 import { useLazyQuery, useMutation } from "@apollo/client";
 import React, { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
 
 import { FiAtSign, FiCheck, FiKey, FiSend } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -8,8 +7,10 @@ import { useStateContext } from "../contexts/ContextProvider";
 import { VALIDATE_USER } from "../data/gql/mutations";
 import { GET_ID_FROM_USERNAME } from "../data/gql/queries";
 
+import { useLocalStorage } from "../hooks";
+
 const Login = () => {
-	const [cookies, setCookie] = useCookies(["user"]);
+	const [userStorage, setUserStorage] = useLocalStorage("user", "");
 
 	const [email, setEmail] = useState("");
 	const [psw1, setPsw1] = useState("");
@@ -35,7 +36,7 @@ const Login = () => {
 			};
 			setCurrentUser(fnlUser);
 			setLoading(false);
-			setCookie("user", JSON.stringify(fnlUser), { path: "/" });
+			setUserStorage(JSON.stringify(fnlUser));
 			navigate(`/${fnlUser.username}`);
 		},
 		onError: (error) => {

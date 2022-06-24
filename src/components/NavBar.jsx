@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import React, { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 
 import { FiUser, FiSearch, FiEye, FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +9,11 @@ import { SET_STREAM_KEY } from "../data/gql/mutations";
 
 import Logo from "../static/svg/logo.svg?component";
 
+import { useLocalStorage } from "../hooks";
+
 const NavBar = () => {
-	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+	// const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+	const [userStorage, setUserStorage] = useLocalStorage("user", "");
 
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -27,7 +30,7 @@ const NavBar = () => {
 	const navigate = useNavigate();
 
 	const handleClick = () => {
-		if (currentUser) {
+		if (currentUser && currentUser !== "") {
 			setUserOptions(!userOptions);
 		} else {
 			navigate("/login");
@@ -40,7 +43,8 @@ const NavBar = () => {
 
 
 	const handleLogout = () => {
-		removeCookie('user', { path: "/" });
+		setUserStorage("")
+		// removeCookie('user', { path: "/" });
 		setUserOptions(false);
 	}
 

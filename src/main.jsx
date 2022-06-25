@@ -9,7 +9,7 @@ import { ContextProvider } from "./contexts/ContextProvider";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-	uri: "https://us-ag-ms-mm2rw4nxna-rj.a.run.app/graphql",
+	uri: "https://us-proxy-xccacorjiq-uw.a.run.app/graphql",
 	cache: new InMemoryCache(),
 	defaultOptions: {
 		watchQuery: {

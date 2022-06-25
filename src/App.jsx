@@ -9,26 +9,28 @@ import { NavBar } from "./components";
 
 import "./static/styles/index.scss";
 import { useStateContext } from "./contexts/ContextProvider";
-import { useCookies } from "react-cookie";
+
+import { useLocalStorage } from "./hooks";
 
 function App() {
+	const [userStorage, setUserStorage] = useLocalStorage("user", "");
 
-	const [cookies, setCookie] = useCookies(["user"]);
-
-	const {setScreenSize, setCurrentUser} = useStateContext();
+	const { setScreenSize, setCurrentUser } = useStateContext();
 
 	useEffect(() => {
-		setScreenSize([window.innerWidth, window.innerHeight])
-		window.addEventListener("resize", () => setScreenSize([window.innerWidth, window.innerHeight]));
+		setScreenSize([window.innerWidth, window.innerHeight]);
+		window.addEventListener("resize", () =>
+			setScreenSize([window.innerWidth, window.innerHeight])
+		);
 	}, []);
 
 	useEffect(() => {
-		setCurrentUser(cookies.user)
-	}, [cookies])
+		setCurrentUser(userStorage);
+	}, [userStorage]);
 
 	return (
 		<div>
-			<BrowserRouter  >
+			<BrowserRouter>
 				<Routes>
 					{/* dashboard  */}
 					<Route path="/" element={<In />} />

@@ -1,0 +1,174 @@
+@use "./resources/colors" as *;
+@use "./resources/fonts.scss" as *;
+@use "./resources/sizes.scss" as *;
+
+.LoginScreen {
+	$padding-top: 5vh;
+
+	width: 100vw;
+	height: calc(100vh - $padding-top);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+
+	padding-top: $padding-top;
+
+	background-image: linear-gradient(
+		135deg,
+		hsl(286deg 45% 38%) 0%,
+		hsl(279deg 42% 37%) 16%,
+		hsl(273deg 40% 36%) 30%,
+		hsl(266deg 37% 34%) 42%,
+		hsl(259deg 35% 32%) 53%,
+		hsl(253deg 33% 30%) 63%,
+		hsl(247deg 30% 28%) 71%,
+		hsl(241deg 27% 26%) 78%,
+		hsl(235deg 27% 23%) 84%,
+		hsl(232deg 25% 20%) 89%,
+		hsl(229deg 22% 18%) 94%,
+		hsl(227deg 15% 15%) 97%,
+		hsl(225deg 6% 13%) 100%
+	);
+
+	.BackButton {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 30px;
+		height: 30px;
+		color: $ac-color;
+
+		cursor: pointer;
+
+        padding: 10px;
+
+		&:hover {
+			background-color: adjust-color(
+				$a1-color,
+				$alpha: -0.8,
+				$lightness: 18%
+			);
+			backdrop-filter: blur(30px);
+		}
+	}
+
+	.LogoContainer {
+		$width: 250px;
+		$letter-spacing: calc($width / 15);
+
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: stretch;
+		height: $width;
+		width: $width;
+		color: $ac-color;
+
+		font-size: $letter-spacing;
+		font-family: "NewAleniaBlack";
+		letter-spacing: $letter-spacing;
+
+		text-align: center;
+		overflow: hidden;
+
+		label {
+			margin-left: $letter-spacing;
+			margin-top: $letter-spacing;
+		}
+	}
+
+	.OptionSelector {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-around;
+		align-items: center;
+		max-width: 500px;
+		min-width: 250px;
+		width: 100%;
+		height: 50px;
+
+		margin-bottom: 20px;
+
+		.OptionSelectorOption {
+			padding: 15px 10px;
+			cursor: pointer;
+
+			border-radius: 20px;
+
+			transition: all 0.3s ease;
+
+			label {
+				color: $ac-color;
+				font-family: "Maven Pro";
+				text-align: center;
+				font-weight: 900;
+				font-size: 1rem;
+				margin: 0 10px;
+				cursor: pointer;
+			}
+		}
+
+		.OptionSelectorOption:hover {
+			background-color: adjust-color(
+				$a1-color,
+				$alpha: -0.8,
+				$lightness: 18%
+			);
+			backdrop-filter: blur(30px);
+		}
+	}
+
+	.CredentialsContainer {
+		display: flex;
+
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-content: center;
+
+		width: 100%;
+
+		background-color: adjust-color($color: $bg-color, $lightness: 4%);
+		box-shadow: inset 5px 5px 5px 0 adjust-color($bg-color, $alpha: 0);
+		background-image: linear-gradient(
+			130deg,
+			hsl(225deg 6% 13%) 0%,
+			hsl(229deg 6% 14%) 15%,
+			hsl(234deg 6% 14%) 23%,
+			hsl(239deg 6% 15%) 30%,
+			hsl(246deg 6% 15%) 35%,
+			hsl(252deg 6% 16%) 42%,
+			hsl(259deg 6% 16%) 49%,
+			hsl(266deg 7% 17%) 59%,
+			hsl(273deg 7% 17%) 73%,
+			hsl(280deg 7% 18%) 100%
+		);
+
+		transition: flex 1s ease, opacity 1s ease, height 10s ease-out 1s;
+
+		overflow: hidden;
+
+		.GoneAnm {
+			flex: 0 1 0px;
+			width: 0px;
+			opacity: 0;
+		}
+
+		.EnterAnm {
+			flex: 1 1 100%;
+			opacity: 100%;
+		}
+
+		.CredentialWrapper {
+			transition: flex 1s ease, opacity 1s ease, width 0s ease-out 1s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+	}
+}

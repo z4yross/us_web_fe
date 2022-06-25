@@ -56,6 +56,20 @@
 	justify-content: space-between;
 	align-items: center;
 
+	background-image: linear-gradient(
+		130deg,
+		hsl(225deg 6% 13%) 0%,
+		hsl(229deg 6% 14%) 15%,
+		hsl(234deg 6% 14%) 23%,
+		hsl(239deg 6% 15%) 30%,
+		hsl(246deg 6% 15%) 35%,
+		hsl(252deg 6% 16%) 42%,
+		hsl(259deg 6% 16%) 49%,
+		hsl(266deg 7% 17%) 59%,
+		hsl(273deg 7% 17%) 73%,
+		hsl(280deg 7% 18%) 100%
+	);
+
 	.MainLogo {
 		flex: 0 0.5 100px;
 		height: 60%;
@@ -105,7 +119,7 @@
 
 		input[type="text"] {
 			flex: 1 1;
-			font-family: 'Maven Pro';
+			font-family: "Maven Pro";
 			padding-left: 20px;
 			font-size: medium;
 			color: adjust-color($ac-color, $lightness: -30%);
@@ -138,8 +152,8 @@
 			transition: all 0.3s ease;
 
 			display: flex;
-            align-items: center;
-            justify-content: center;
+			align-items: center;
+			justify-content: center;
 
 			svg {
 				width: 20px;
@@ -191,4 +205,258 @@
 			background-color: $a2-color;
 		}
 	}
+}
+
+.UserOptions {
+	// background-color: transparent;
+	min-width: 400px;
+	width: calc(20vw);
+	height: calc(100%);
+	z-index: 100;
+	position: absolute;
+	right: 0;
+	top: 0;
+	// border-top-left-radius: 20px;
+	// border-bottom-left-radius: 20px;
+	// box-shadow: inset 5px 5px 5px 0 $bg-color;
+
+	transition: all 1s ease;
+
+	white-space: nowrap;
+
+	backdrop-filter: blur(5px);
+
+	overflow: hidden;
+
+	.WelcomeLabel {
+		font-family: "Maven Pro";
+		font-size: 2rem;
+		font-weight: 600;
+		color: adjust-color($ac-color, $lightness: -25%);
+		text-align: right;
+		margin: 20px 20px;
+		text-transform: uppercase;
+	}
+
+	.keyGenerator {
+		// width: 100%;
+		height: 55px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+
+		justify-content: flex-start;
+		align-items: stretch;
+
+		padding: 10px 20px;
+
+		background-image: linear-gradient(
+			130deg,
+			hsl(225deg 6% 13%) 0%,
+			hsl(229deg 6% 14%) 15%,
+			hsl(234deg 6% 14%) 23%,
+			hsl(239deg 6% 15%) 30%,
+			hsl(246deg 6% 15%) 35%,
+			hsl(252deg 6% 16%) 42%,
+			hsl(259deg 6% 16%) 49%,
+			hsl(266deg 7% 17%) 59%,
+			hsl(273deg 7% 17%) 73%,
+			hsl(280deg 7% 18%) 100%
+		);
+
+		box-shadow: inset 5px 5px 5px 0 $bg-color;
+
+		label {
+			flex: 1 1 20px;
+			font-family: "Maven Pro";
+			font-size: 0.8rem;
+			font-weight: 600;
+			color: adjust-color($ac-color, $lightness: -25%);
+		}
+
+		div {
+			flex: 1 1 35px;
+			display: flex;
+
+			flex-direction: row;
+			justify-content: center;
+			align-items: stretch;
+
+			input {
+				flex: 1 1;
+				min-width: 0;
+
+				background-color: adjust-color($bg-color, $lightness: 7%);
+				border: none;
+
+				border-top-left-radius: 20px;
+				border-bottom-left-radius: 20px;
+
+				padding-left: 10px;
+
+				font-family: "Maven Pro";
+				font-size: 1.2rem;
+				font-weight: 600;
+				color: adjust-color($ac-color, $lightness: -25%);
+
+				justify-content: center;
+
+				text-align: center;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			button {
+				flex: 0 1 50px;
+				background-color: adjust-color($bg-color, $lightness: 7%);
+				border-top-right-radius: 20px;
+				border-bottom-right-radius: 20px;
+
+				cursor: pointer;
+				border: none;
+
+				margin-left: 5px;
+
+				padding: 7px;
+				height: 35px;
+
+				transition: all 0.1s linear;
+
+				svg {
+					color: $ac-color;
+					width: 100%;
+					height: 100%;
+
+					// margin: 10px;
+				}
+
+				&:hover{
+					background-color: $a1-color;
+					
+				}
+		
+		
+				&:active{
+					background-color: $a2-color;
+				}
+			}
+		}
+	}
+
+	.CloseSession {
+		background-image: linear-gradient(
+			130deg,
+			hsl(225deg 6% 13%) 0%,
+			hsl(229deg 6% 14%) 15%,
+			hsl(234deg 6% 14%) 23%,
+			hsl(239deg 6% 15%) 30%,
+			hsl(246deg 6% 15%) 35%,
+			hsl(252deg 6% 16%) 42%,
+			hsl(259deg 6% 16%) 49%,
+			hsl(266deg 7% 17%) 59%,
+			hsl(273deg 7% 17%) 73%,
+			hsl(280deg 7% 18%) 100%
+		);
+
+		border: 0;
+
+		width: calc(100% - 20px);
+		padding: 10px;
+		border-radius: 20px;
+
+		position: absolute;
+		bottom: 20px;
+		right: 10px;
+
+		cursor: pointer;
+
+		box-shadow: 3px 3px 3px 0 $bg-color;
+
+		transition: all 0.7s ease;
+
+		label {
+			font-family: "Maven Pro";
+			font-size: 1rem;
+			font-weight: 600;
+			color: adjust-color($ac-color, $lightness: -25%);
+			text-align: right;
+			margin: 20px 20px;
+			text-transform: uppercase;
+			cursor: pointer;
+		}
+		
+		svg{
+			transform: scale(1.2);
+			color: adjust-color($ac-color, $lightness: -25%);
+		}
+
+		&:hover{
+			filter: contrast(110%);
+		}
+
+
+		&:active{
+			box-shadow: inset 5px 5px 5px 0 $bg-color;
+		}
+	}
+
+	&::after {
+		background-image: linear-gradient(
+			135deg,
+			hsl(286deg 45% 38%) 0%,
+			hsl(279deg 42% 37%) 16%,
+			hsl(273deg 40% 36%) 30%,
+			hsl(266deg 37% 34%) 42%,
+			hsl(259deg 35% 32%) 53%,
+			hsl(253deg 33% 30%) 63%,
+			hsl(247deg 30% 28%) 71%,
+			hsl(241deg 27% 26%) 78%,
+			hsl(235deg 27% 23%) 84%,
+			hsl(232deg 25% 20%) 89%,
+			hsl(229deg 22% 18%) 94%,
+			hsl(227deg 15% 15%) 97%,
+			hsl(225deg 6% 13%) 100%
+		);
+
+		content: "";
+
+		opacity: 0.5;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		position: absolute;
+
+		background-color: $a1-color;
+		z-index: -1;
+	}
+}
+
+.hide {
+	// min-width: 0 !important;
+	// width: 0 !important;
+
+	right: -100vw;
+	// height: 0;
+}
+
+.UserOptionsWrapper {
+	overflow: hidden;
+
+	min-width: 400px;
+	width: calc(20vw);
+	height: calc(100vh - 52px);
+	z-index: 1;
+	position: absolute;
+	right: 0;
+	top: 52px;
+	transition: all 1s ease;
+}
+
+.hideWrapper {
+	min-width: 0;
+	width: 0;
 }

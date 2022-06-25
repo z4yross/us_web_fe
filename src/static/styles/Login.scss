@@ -1,0 +1,251 @@
+@use "./resources/colors" as *;
+@use "./resources/fonts.scss" as *;
+@use "./resources/sizes.scss" as *;
+
+.Login {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	width: 500px;
+    // align-self: center;
+    max-width: 500px;
+    min-width: 250px;
+	// background-color: adjust-color($color: $bg-color, $lightness: 4%);
+	// padding: 20px 20px;
+	border-radius: 20px;
+
+    
+
+    @media screen and (max-width: $small) {
+        box-shadow: inset 0px 0px 0px 0 $bg-color;
+		width: calc(100vw - 10px);
+        border-radius: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        margin: 0;
+	}
+
+	.InfoLabelContainer {
+        margin-top: 10px;
+		color: adjust-color($ac-color, $lightness: -15%);
+
+		justify-content: center;
+		align-items: center;
+
+        text-align: center;
+
+		font-family: "Maven Pro";
+		font-size: 0.85rem;
+        padding: 0 10px;
+		font-weight: 600;
+	}
+
+	.ErrorLabel {
+		color: adjust-color($a1-color, $lightness: 5%);
+
+		animation: shake 0.5s ease-in-out;
+
+		@keyframes shake {
+			10%,
+			90% {
+				transform: translate3d(-1px, 0, 0);
+			}
+
+			20%,
+			80% {
+				transform: translate3d(2px, 0, 0);
+			}
+
+			30%,
+			50%,
+			70% {
+				transform: translate3d(-4px, 0, 0);
+			}
+
+			40%,
+			60% {
+				transform: translate3d(4px, 0, 0);
+			}
+		}
+	}
+
+	div {
+		height: 50px;
+
+        margin: 0 20px;
+
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		justify-content: flex-start;
+
+		margin-bottom: 10px;
+
+		border-radius: 20px;
+		overflow: hidden;
+
+		input {
+			flex: 1 1;
+			background-color: $bg-color;
+			border: none;
+			padding-left: 10px;
+			color: adjust-color($color: $ac-color, $lightness: -20%);
+
+			font-family: "Maven Pro";
+			font-size: medium;
+			font-weight: 600;
+		}
+
+		input:focus {
+			border: none;
+			outline: none;
+		}
+
+		svg {
+			flex: 0 0 20px;
+			background-color: $bg-color;
+			color: adjust-color($a1-color, $lightness: 5%);
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-left: 10px;
+		}
+	}
+
+	button {
+        margin: 0 20px;
+        margin-bottom: 20px;
+        user-select:none;
+		background-image: linear-gradient(
+			135deg,
+			hsl(286deg 45% 38%) 0%,
+			hsl(279deg 42% 37%) 16%,
+			hsl(273deg 40% 36%) 30%,
+			hsl(266deg 37% 34%) 42%,
+			hsl(259deg 35% 32%) 53%,
+			hsl(253deg 33% 30%) 63%,
+			hsl(247deg 30% 28%) 71%,
+			hsl(241deg 27% 26%) 78%,
+			hsl(235deg 27% 23%) 84%,
+			hsl(232deg 25% 20%) 89%,
+			hsl(229deg 22% 18%) 94%,
+			hsl(227deg 15% 15%) 97%,
+			hsl(225deg 6% 13%) 100%
+		);
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+
+		border: none;
+		outline: none;
+		align-items: stretch;
+		justify-content: center;
+
+		height: 50px;
+		border-radius: 20px;
+		cursor: pointer;
+		overflow: hidden;
+		transition: all 0.5s ease;
+
+		svg {
+			flex: 0 0 20px;
+			// background-color: $ac-color;
+			display: flex;
+			height: 15px;
+			justify-content: center;
+			align-items: center;
+			// height: 100%;
+			color: $ac-color;
+			align-self: center;
+
+			cursor: pointer;
+
+			transition: transform 0.5s ease, height 0.5s ease-out;
+			// transition: height 0.6s ease-out;
+
+			// opacity: 0;
+		}
+
+		label {
+			font-family: "NewAleniaBlack";
+			font-size: 1rem;
+			font-weight: 900;
+
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+			line-height: 50px - 3px;
+
+			color: adjust-color($ac-color, $lightness: -7%);
+			letter-spacing: 0.3rem;
+
+			cursor: pointer;
+
+			transition: all 0.5s ease;
+		}
+
+		&:hover {
+			box-shadow: 1px 2px 3px 0 $bg-color;
+			filter: contrast(120%);
+
+			label {
+				transform: translatex(-50px);
+				opacity: 0;
+			}
+
+			svg {
+				transform: translatex(-50px);
+				height: 20px;
+			}
+		}
+
+		&:active {
+			box-shadow: inset 2px 2px 3px 0 $bg-color;
+			// filter: contrast(150%);
+
+			svg {
+				transform: translatex(-80px) rotate(40deg) scale(1.7);
+			}
+		}
+	}
+
+	.loading {
+		label {
+			transform: translatex(-50px);
+			opacity: 0;
+		}
+		svg {
+			// transform: translatex(80px) rotate(40deg) !important;
+			animation: ld-btn-anim 1.5s linear infinite;
+		}
+
+		@keyframes ld-btn-anim {
+			0% {
+				transform: translatex(-80px) rotate(40deg) scale(1.7);
+				opacity: 100%;
+			}
+			30% {
+			}
+			60% {
+				transform: translatex(300px) rotate(40deg) scale(1.7);
+				opacity: 100%;
+			}
+			60.1% {
+				opacity: 0;
+			}
+			62% {
+				opacity: 0;
+				transform: translatex(-350px) rotate(40deg) scale(1.7);
+			}
+			63% {
+				opacity: 100%;
+				transform: translatex(-320px) rotate(40deg) scale(1.7);
+			}
+			100% {
+				transform: translatex(-80px) rotate(40deg) scale(1.7);
+			}
+		}
+	}
+}

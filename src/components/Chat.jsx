@@ -17,7 +17,7 @@ const Chat = () => {
 			<div className="ChatMessages">
 				{messages.reverse().map((message, i) => {
 					return (
-						<div className="messageWrapper">
+						<div className="messageWrapper" key={i}>
 							<div className="messageAuthor">{message.author.toUpperCase()}</div>
                             <div className="messageText">{message.message}</div>
 						</div>

@@ -10,22 +10,32 @@ import { NavBar } from "./components";
 import "./static/styles/index.scss";
 import { useStateContext } from "./contexts/ContextProvider";
 
-function App() {
+import { useLocalStorage } from "./hooks";
 
-	const {setScreenSize} = useStateContext();
+function App() {
+	const [userStorage, setUserStorage] = useLocalStorage("user", "");
+
+	const { setScreenSize, setCurrentUser } = useStateContext();
 
 	useEffect(() => {
-		setScreenSize([window.innerWidth, window.innerHeight])
-		window.addEventListener("resize", () => setScreenSize([window.innerWidth, window.innerHeight]));
+		setScreenSize([window.innerWidth, window.innerHeight]);
+		window.addEventListener("resize", () =>
+			setScreenSize([window.innerWidth, window.innerHeight])
+		);
 	}, []);
+
+	useEffect(() => {
+		setCurrentUser(userStorage);
+	}, [userStorage]);
 
 	return (
 		<div>
 			<BrowserRouter>
 				<Routes>
 					{/* dashboard  */}
+					<Route path="/" element={<In />} />
 					<Route path="/login" element={<In />} />
-					<Route path="/stream" element={<Stream />} />
+					<Route path="/:user" element={<Stream />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

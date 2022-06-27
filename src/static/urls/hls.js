@@ -1,1 +1,1 @@
-export default 'http://home.z4yross.xyz:8283/streams';
+export default 'http://stream.unstream.xyz:8283/streams';

@@ -25,7 +25,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		setCurrentUser(userStorage);
+		setCurrentUser(JSON.parse(userStorage));
 	}, [userStorage]);
 
 	return (

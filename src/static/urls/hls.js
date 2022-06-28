@@ -1,1 +1,2 @@
-export default 'http://home.z4yross.xyz:8283/streams';
+export default 'https://proxy.unstream.xyz/files/streams';
+// export default 'http://192.168.1.10/files/streams';

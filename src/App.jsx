@@ -25,7 +25,13 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		setCurrentUser(JSON.parse(userStorage));
+		console.log(userStorage)
+		try{
+			setCurrentUser(JSON.parse(userStorage));
+		}catch(error){
+			setCurrentUser("");
+		}
+		
 	}, [userStorage]);
 
 	return (

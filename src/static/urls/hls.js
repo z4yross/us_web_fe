@@ -1,1 +1,2 @@
-export default 'http://stream.unstream.xyz:8283/streams';
+export default 'https://proxy.unstream.xyz/files/streams';
+// export default 'http://192.168.1.10/files/streams';
